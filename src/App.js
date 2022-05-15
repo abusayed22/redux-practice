@@ -1,5 +1,5 @@
 import { useSelector,useDispatch } from "react-redux";
-import {increment,dicrement,newLogin} from './action'
+import {increment,dicrement,newLogin,newLogout} from './action'
 function App() {
   const disPatch = useDispatch()
   const counter = useSelector(state => state.counter)
@@ -16,6 +16,10 @@ function App() {
       <center>
         <button onClick={() => disPatch(increment())}>increment by one</button>
         <button onClick={() => disPatch(dicrement())}>dicrement by one</button>
+        <br />
+        <br />
+        <br />
+        <button onClick={() => disPatch(newLogout())}>Logout</button>
       </center></span>)
        : (<button onClick={() => disPatch(newLogin())}>Login</button>)}
         
