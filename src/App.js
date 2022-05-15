@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useSelector,useDispatch } from "react-redux";
+import {increment,dicrement,newLogin} from './action'
 function App() {
+  const disPatch = useDispatch()
+  const counter = useSelector(state => state.counter)
+  const islog = useSelector(state => state.logi)
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      
+      <br />
+      
+        {islog ? (<span><center>
+       <h1>counter {counter}</h1>
+      </center>
+      <center>
+        <button onClick={() => disPatch(increment())}>increment by one</button>
+        <button onClick={() => disPatch(dicrement())}>dicrement by one</button>
+      </center></span>)
+       : (<button onClick={() => disPatch(newLogin())}>Login</button>)}
+        
+      
     </div>
   );
 }
